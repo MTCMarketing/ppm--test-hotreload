@@ -1,1 +1,34 @@
-test
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Static Config Test</title>
+  </head>
+  <body>
+    <h1>Static Config Test</h1>
+    <p>Open the console.</p>
+
+    <script type="module">
+      /*
+        Change this value when you want to force a reload.
+        You control cache busting here.
+      */
+      const VERSION = "v1";
+
+      import(`./static-config.js?v=${VERSION}`)
+        .then(({ MAIN_CONTENT }) => {
+          const hasDynamicUpdate =
+            MAIN_CONTENT?.CONTENT !== undefined;
+
+          console.log("MAIN_CONTENT:", MAIN_CONTENT);
+          console.log(
+            "has dynamic update:",
+            hasDynamicUpdate
+          );
+        })
+        .catch((err) => {
+          console.error("Failed to load static-config.js", err);
+        });
+    </script>
+  </body>
+</html>
