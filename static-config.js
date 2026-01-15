@@ -7,5 +7,5 @@ export const MAIN_CONTENT = {
   HIDE_LANDING_VIDEO_SECTION: false,
   URL_REWRITING: true,
   DEFAULT_LANGUAGE: "vn",
-  CONTENT: { metadata: true, settings: true },
+  CONTENT: undefined
 };
