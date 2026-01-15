@@ -1,4 +1,4 @@
-import {SITE_CONTENT} from "./content-payload.js";
+import { SITE_CONTENT } from "./content-payload.js";
 
 export const MAIN_CONTENT = {
   UNDER_CONSTRUCTION: false,
@@ -9,5 +9,5 @@ export const MAIN_CONTENT = {
   HIDE_LANDING_VIDEO_SECTION: false,
   URL_REWRITING: true,
   DEFAULT_LANGUAGE: "vn",
-  CONTENT: undefined,
+  CONTENT: { metadata: true, settings: true },
 };
