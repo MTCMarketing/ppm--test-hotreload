@@ -9,13 +9,24 @@
     <p>Open the console.</p>
 
     <script type="module">
-      const VERSION = "v2";
+      // 🔒 MANUAL VERSION CONTROL
+      const VERSION = "v1";
 
-      const url =
-        new URL("./static-config.js", import.meta.url).href +
-        `?v=${VERSION}`;
+      // 👀 Prove which copy you are looking at
+      console.log("INDEX.HTML VERSION:", VERSION);
+      console.log("PAGE URL:", window.location.href);
 
-      import(url)
+      // ⚠️ IMPORTANT:
+      // GitHub Pages is hosted at:
+      // https://mtcmarketing.github.io/ppm--test-hotreload/
+      //
+      // So we MUST use an absolute path from the repo root.
+      const STATIC_CONFIG_URL =
+        "/ppm--test-hotreload/static-config.js?v=" + VERSION;
+
+      console.log("IMPORTING:", STATIC_CONFIG_URL);
+
+      import(STATIC_CONFIG_URL)
         .then(({ MAIN_CONTENT }) => {
           const hasDynamicUpdate =
             MAIN_CONTENT?.CONTENT !== undefined;
@@ -24,7 +35,8 @@
           console.log("has dynamic update:", hasDynamicUpdate);
         })
         .catch((err) => {
-          console.error("Failed to load static-config.js", err);
+          console.error("FAILED TO IMPORT static-config.js");
+          console.error(err);
         });
     </script>
   </body>
