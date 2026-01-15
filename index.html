@@ -9,22 +9,19 @@
     <p>Open the console.</p>
 
     <script type="module">
-      /*
-        Change this value when you want to force a reload.
-        You control cache busting here.
-      */
-      const VERSION = "v1";
+      const VERSION = "v2";
 
-      import(`./static-config.js?v=${VERSION}`)
+      const url =
+        new URL("./static-config.js", import.meta.url).href +
+        `?v=${VERSION}`;
+
+      import(url)
         .then(({ MAIN_CONTENT }) => {
           const hasDynamicUpdate =
             MAIN_CONTENT?.CONTENT !== undefined;
 
           console.log("MAIN_CONTENT:", MAIN_CONTENT);
-          console.log(
-            "has dynamic update:",
-            hasDynamicUpdate
-          );
+          console.log("has dynamic update:", hasDynamicUpdate);
         })
         .catch((err) => {
           console.error("Failed to load static-config.js", err);
