@@ -1,5 +1,3 @@
-import { SITE_CONTENT } from "./content-payload.js";
-
 export const MAIN_CONTENT = {
   UNDER_CONSTRUCTION: false,
   ENABLE_EDITOR: false,
