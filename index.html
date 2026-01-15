@@ -9,18 +9,11 @@
     <p>Open the console.</p>
 
     <script type="module">
-      // 🔒 MANUAL VERSION CONTROL
-      const VERSION = "v1";
+      const VERSION = "v3"; // 👈 incremented again
 
-      // 👀 Prove which copy you are looking at
       console.log("INDEX.HTML VERSION:", VERSION);
       console.log("PAGE URL:", window.location.href);
 
-      // ⚠️ IMPORTANT:
-      // GitHub Pages is hosted at:
-      // https://mtcmarketing.github.io/ppm--test-hotreload/
-      //
-      // So we MUST use an absolute path from the repo root.
       const STATIC_CONFIG_URL =
         "/ppm--test-hotreload/static-config.js?v=" + VERSION;
 
